@@ -1,0 +1,162 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1f1f186;
+    font-family: 'Poppins', sans-serif;
+    background: /* linear-gradient(rgba(36, 36, 36, 0.226),rgba(61, 61, 61, 0.123)),  */url(../download.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Tasks Component */
+.head-task{
+    margin: 15px 0;
+    text-align: center;
+    font-weight: bold;
+    color: #055160;
+    font-family: 'Bree Serif', serif;
+    letter-spacing: 1px;
+    font-size: 55px;
+    color: #FFF;
+}
+.mark-all{
+    margin: 0 10%;
+    padding: 8px 20px;
+}
+form label{
+    margin: 5px 0;
+    font-size: 20px;
+}
+form button{
+    width: 100%;
+    margin: 10px 0;
+}
+.display-tasks{
+    padding: 15px 25px;
+    background-color: #ffededd5;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    position: relative;
+    box-shadow: 0.5px 0.5px 3px 2px #52525267;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    cursor: pointer;
+    z-index: 88;
+}
+.display-tasks:hover{
+    box-shadow: none;
+}
+.display-tasks .content{
+    margin: 0 8px;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+.control{
+    float: right;
+    z-index: 9999;
+}
+.control ul{
+    list-style: none;
+    padding: 0;
+}
+.control ul li{
+    display: inline;
+    margin: 0 10px;
+}
+.control ul li i{
+    cursor: pointer;
+    font-size: 20px;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+.control ul li i:hover{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+.color{
+    position: relative;
+    margin-right: 20px;
+    padding: 15px;
+    background-color: #FFF;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: none;
+}
+.active-color{
+    display: inline;
+}
+.color::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 13px solid #FFF;
+    position: absolute;
+    top: 11px;
+    right: -11px;
+}
+.color span{
+    padding: 3px 15px;
+    margin: 5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+.color span:hover{
+    padding: 5px 17px;
+}
+.edit-task{
+    padding: 0;
+    margin: 15px 0;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    display: none;
+}
+.active-edit{
+    display: block;
+}
+.edit-task input{
+    border: 1px solid #999;
+    border-radius: 5px;
+    width: 80%;
+    padding: 7px 13px;
+    outline: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.edit-task button{
+    width: 13%;
+    line-height: 1.6;
+}
