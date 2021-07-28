@@ -8,13 +8,13 @@ import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
   const [tasks, setTasks] = useState([
-    axios.get("http://localhost:3001/tasks"),
+    axios.get("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks"),
   ]);
 
   useEffect(() => {
     // Get Data
     const getData = async () => {
-      const { data } = await axios.get("http://localhost:3001/tasks");
+      const { data } = await axios.get("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks");
       setTasks(data);
     };
     getData();
@@ -26,7 +26,7 @@ const App = () => {
       =========================*/
   const addTask = async (content) => {
     const obj = { id: uuidv4(), content, color: "", done: false };
-    await axios.post("http://localhost:3001/tasks/", obj);
+    await axios.post("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/", obj);
     setTasks([...tasks, obj]);
   };
   //==========================//
@@ -39,7 +39,7 @@ const App = () => {
 
     try{
     await axios.put(
-      "http://localhost:3001/tasks/" + cloneTasks[index].id,
+      "https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/" + cloneTasks[index].id,
       cloneTasks[index]
     );
     cloneTasks[index].done ?  toast.success("You did it, Good Job ;)") : toast.success("Common try, hero ")
