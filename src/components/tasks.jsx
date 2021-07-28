@@ -37,7 +37,7 @@ const Tasks = ({ tasks, setTasks, done}) => {
 
         const obj = {id: cloneTasks[index].id, content: contetnTask, color: cloneTasks[index].color, done : cloneTasks[index].done}
 
-        await axios.put("http://localhost:3001/tasks/" + task.id, obj);
+        await axios.put("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/" + task.id, obj);
     
         setTasks(cloneTasks);
 
@@ -54,7 +54,7 @@ const Tasks = ({ tasks, setTasks, done}) => {
 
         const obj = {id: tasks[index].id, content: tasks[index].content, color, done : tasks[index].done}
         
-        await axios.put("http://localhost:3001/tasks/" + task.id, obj);
+        await axios.put("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/" + task.id, obj);
     
         setTasks(cloneTasks);
       };
@@ -63,10 +63,10 @@ const Tasks = ({ tasks, setTasks, done}) => {
         const cloneTasks = tasks.filter(t => t.id !== task.id);
 
         try{
-           await axios.delete("http://localhost:3001/tasks/" + task.id);
+           await axios.delete("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/" + task.id);
            toast("Deleted")
         }catch{
-          await axios.delete("http://localhost:3001/tasks/" + task.id)
+          await axios.delete("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/" + task.id)
           toast.error("Error")
         }
 
