@@ -3,7 +3,6 @@ import axios from 'axios';
 import EditTask from './edittask';
 import { toast } from 'react-toastify';
 
-
 const Tasks = ({ tasks, setTasks, done}) => {
 
 
@@ -16,6 +15,10 @@ const Tasks = ({ tasks, setTasks, done}) => {
         let colorIcon = e.target;
         colorIcon.previousSibling.classList.toggle("active-color");
       };
+
+      const menu = (e) =>{
+        e.target.closest("div").firstChild.classList.toggle("inactive-control")
+      }
     
       const editIcon = (e, task) => {
         let editIcon = e.target;
@@ -50,7 +53,7 @@ const Tasks = ({ tasks, setTasks, done}) => {
         cloneTasks[index].color = color
 
         const obj = {id: tasks[index].id, content: tasks[index].content, color, done : tasks[index].done}
-
+        
         await axios.put("http://localhost:3001/tasks/" + task.id, obj);
     
         setTasks(cloneTasks);
@@ -70,9 +73,10 @@ const Tasks = ({ tasks, setTasks, done}) => {
         setTasks(cloneTasks);
       }
 
+
     return (
         <React.Fragment>
-          <h1 className="head-task">My Tasks</h1>
+          <h1 className="head-task animate__animated animate__bounce">My Tasks</h1>
             {tasks !== undefined && tasks.map(task => (
                  <div
                  className="display-tasks"
@@ -103,7 +107,7 @@ const Tasks = ({ tasks, setTasks, done}) => {
                    {task.content}
                  </span>
                  <div className="control">
-                   <ul>
+                   <ul className="ul-control inactive-control">
                      <li>
                        <div className="color" id="color">
                          <span
@@ -142,6 +146,7 @@ const Tasks = ({ tasks, setTasks, done}) => {
                        ></i>
                      </li>
                    </ul>
+                 <span className="menu"><i className="fas fa-ellipsis-v menu" onClick={menu}></i></span>
                  </div>
                  <EditTask  editTask={editTask} task={task} />
                </div>

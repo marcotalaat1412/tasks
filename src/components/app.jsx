@@ -4,7 +4,7 @@ import AddTask from "./addtask";
 import Tasks from "./tasks";
 import { v4 as uuidv4 } from "uuid";
 import { Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -37,10 +37,19 @@ const App = () => {
 
     cloneTasks[index].done = !cloneTasks[index].done;
 
+    try{
     await axios.put(
       "http://localhost:3001/tasks/" + cloneTasks[index].id,
       cloneTasks[index]
     );
+    cloneTasks[index].done ?  toast.success("You did it, Good Job ;)") : toast.success("Common try, hero ")
+    }catch{
+      await axios.put(
+        "http://localhost:3001/tasks/" + cloneTasks[index].id,
+        cloneTasks[index]
+      );
+      toast.error("Error :(")
+    }
     setTasks(cloneTasks);
   };
 

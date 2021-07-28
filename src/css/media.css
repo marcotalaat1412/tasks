@@ -16,6 +16,17 @@
     .display-tasks .content{
         display: inline-block;
     }
+    .add-task-form button{
+        position: relative;
+        width: 100%;
+        top: 0;
+    }
+    .inactive-control{
+        visibility: hidden;
+    }
+    .menu{
+        display: inline;
+    }
 }
 
 

@@ -10,18 +10,16 @@ const AddTask = ({addTask}) => {
     }
 
     return ( 
-        <form onSubmit={submit}>
-        <div className="form-group">
-          <label htmlFor="tasks">I want to finish ...</label>
-          <textarea
+        <form onSubmit={submit} className="add-task-form position-relative">
+          <label htmlFor="tasks" className="d-block">I want to finish ...</label>
+          <input
+          type="text"
             className="form-control"
             id="tasks"
             name="content"
             value={tasks}
             onChange={e => setTasks(e.currentTarget.value)}
-          ></textarea>
-        </div>
-
+          />
         <button type="submit" className="btn btn-primary">
           Add Task
         </button>
