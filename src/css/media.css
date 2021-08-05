@@ -30,6 +30,16 @@
     .edit-task button{
         width: 100%;
     }
+    .active-color{
+        position: absolute;
+        right: 147px;
+        top: 0;
+        overflow: auto;
+        width: 42%;
+    }
+    .color::after{
+        display: none;
+    }
 }
 
 
