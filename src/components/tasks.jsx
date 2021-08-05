@@ -3,6 +3,7 @@ import axios from 'axios';
 import EditTask from './edittask';
 import { toast } from 'react-toastify';
 
+
 const Tasks = ({ tasks, setTasks, done}) => {
 
 
@@ -52,7 +53,7 @@ const Tasks = ({ tasks, setTasks, done}) => {
 
         cloneTasks[index].color = color
 
-        const obj = {id: tasks[index].id, content: tasks[index].content, color, done : tasks[index].done}
+        const obj = {id: task.id, content: tasks[index].content, color, done : tasks[index].done}
         
         await axios.put("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/" + task.id, obj);
     
@@ -73,12 +74,12 @@ const Tasks = ({ tasks, setTasks, done}) => {
         setTasks(cloneTasks);
       }
 
-
     return (
         <React.Fragment>
           <h1 className="head-task animate__animated animate__bounce">My Tasks</h1>
             {tasks !== undefined && tasks.map(task => (
                  <div
+                 id="single-task"
                  className="display-tasks"
                  key={Math.random().toString(36).substr(2, 9)}
                  style={
@@ -126,7 +127,17 @@ const Tasks = ({ tasks, setTasks, done}) => {
                            onClick={(e) => chooseColor(e, task)}
                          ></span>
                          <span
+                           className="orange"
+                           style={{ backgroundColor: "#ff5722" }}
+                           onClick={(e) => chooseColor(e, task)}
+                         ></span>
+                         <span
                            className="green"
+                           style={{ backgroundColor: "#ffededd5" }}
+                           onClick={(e) => chooseColor(e, task)}
+                         ></span>
+                         <span
+                           className="white"
                            style={{ backgroundColor: "#00cc00" }}
                            onClick={(e) => chooseColor(e, task)}
                          ></span>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddTask from "./addtask";
 import Tasks from "./tasks";
-import { v4 as uuidv4 } from "uuid";
 import { Route } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -21,14 +20,17 @@ const App = () => {
     //==========================//
   }, []);
 
+
   /*========================
         AddTask Component Function
       =========================*/
-  const addTask = async (content) => {
-    const obj = { id: uuidv4(), content, color: "", done: false };
-    await axios.post("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/", obj);
-    setTasks([...tasks, obj]);
-  };
+      const addTask = async (content) => {
+        const newObject = {content, color: "", done: false };
+        await axios.post("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks/", newObject);
+        const { data } = await axios.get("https://60fb4c7591156a0017b4c7d9.mockapi.io/tasks");
+        setTasks(data);
+      };
+
   //==========================//
   const done = async (task) => {
     const cloneTasks = [...tasks];
